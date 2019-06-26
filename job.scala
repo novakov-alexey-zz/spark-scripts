@@ -16,6 +16,7 @@ val spark = SparkSession.builder().appName("my-app").config(conf).getOrCreate()
 val sc1 = spark.sparkContext
 
 // run some word count program
+// gcs jar needs to be in CLASSPATH of driver as well
 val data = sc1.textFile("gs://spark-test-244110_datasets/pg2690.txt")
 val res = data.flatMap(_.split(" ")).filter(_.trim.nonEmpty).map((_, 1)).reduceByKey(_ + _).sortBy(_._2, false).take(100)
 res.foreach{ case (w, c) => println(s"$c: $w")}

@@ -1,6 +1,6 @@
 kubectl proxy &
 
-SPARK_IMAGE="gcr.io/spark-test-244110/spark:2.4.3"
+SPARK_IMAGE="gcr.io/spark-test-244110/spark:v2.4.3-gcs"
 SPARK_HOME="/home/an/spark-2.4.3-bin-hadoop2.7"
 
 $SPARK_HOME/bin/spark-shell \
